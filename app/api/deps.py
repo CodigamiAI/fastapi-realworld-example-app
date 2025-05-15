@@ -41,6 +41,7 @@ async def _get_current_user_from_token(token: str, users: UsersRepository) -> Us
         )
     user = await users.get(id=int(payload["sub"]))
     if not user:
+        print ("GOT HERE")
         raise HTTPException(status_code=404, detail="User not found")
     return user
 
